@@ -1,0 +1,128 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Alfa Slab One', sans-serif;
+}
+
+header {
+    background-image: url('https://images.unsplash.com/photo-1773761541805-24e73c6a7bd4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bW92aWUlMjBnYWxsZXJ5fGVufDB8fDB8fHww');
+    background-size: cover;
+    color: white;
+    text-shadow: 0 0 10px black;
+    padding: 0 1rem;
+    height: 30vh;
+    position: relative;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    text-shadow: 0 0 10px black;
+}
+main {
+    display: flex;   
+    justify-content: center;
+}
+
+form {
+    max-width: fit-content;
+    margin: 0 auto;
+    display: flex;
+    border: 3px solid lightgray;
+    border-radius: 5px;
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+}
+
+form svg {
+    background-color: white;
+    color: gray;
+}
+
+form input,
+form button {
+    border: none;
+    padding: .25rem;
+}
+
+form button {
+    background-color: whitesmoke;
+    color: gray;
+}
+
+.banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    color: gray;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+#container > svg {
+    width: 4rem;
+    height: auto;
+}
+
+#container > h2 {
+    margin: 0;
+}
+
+.movie-div {
+    max-width: 60%;
+    padding: 0 0 1rem;
+    border-bottom: 1px solid gray;
+    margin: 0 0 1rem;
+}
+
+.movie-div,
+.line-items {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.poster {
+    height: 200px;
+    width: 140px;
+}
+
+.line-items {
+    align-items: center;
+    justify-content: space-between;
+}
+
+.stars::before {
+    content: "★ ";
+    color: #ffcc00;
+    font-size: 1.2rem;
+}
+
+.watchlist-button {
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    border: none;
+}
+
+.svg-container {
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.scalable-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    cursor: pointer;
+}
