@@ -2,10 +2,14 @@ const containerDiv = document.querySelector('#container')
 
 function renderWatchlist() {
     const existingData = localStorage.getItem('watchlist')
-    const wl = existingData ? JSON.parse(existingData) : null
+    const wl = existingData ? JSON.parse(existingData) : []
 
-    if (!wl) {
-       return
+    if (wl.length === 0) {
+        const emptyWatchlist = document.createElement('p')
+        emptyWatchlist.textContent = "Your watchlist is looking a little empty..."
+        containerDiv.append(emptyWatchlist)
+
+        return
     }
 
     wl.forEach(async item => {
@@ -37,6 +41,8 @@ function renderWatchlist() {
 
         const addToWatchlistContainer = document.createElement('div')
         addToWatchlistContainer.classList.add('svg-container')
+        const addToWatchlistText = document.createElement('p')
+        addToWatchlistText.textContent = 'Remove'
         const addToWatchlist = document.createElement('button')
         addToWatchlist.classList.add('watchlist-button')
         addToWatchlist.innerHTML = `
@@ -48,12 +54,7 @@ function renderWatchlist() {
 
             if (watchlist.includes(data.imdbID)) {
                 watchlist.splice(watchlist.indexOf(data.imdbID), 1)
-            } else {
-                watchlist.push(data.imdbID)
-                addToWatchlist.innerHTML = `
-                    <svg class="scalable-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-minus"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 12l14 0" /></svg>
-                `
-            }
+            } 
 
             localStorage.setItem('watchlist', JSON.stringify(watchlist))
             
@@ -61,7 +62,7 @@ function renderWatchlist() {
             renderWatchlist()
         })
 
-        addToWatchlistContainer.appendChild(addToWatchlist)
+        addToWatchlistContainer.append(addToWatchlist, addToWatchlistText)
         
 
 

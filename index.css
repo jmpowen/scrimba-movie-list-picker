@@ -34,8 +34,9 @@ form {
     overflow: hidden;
     position: absolute;
     bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 50%);
+    left: 0;
+    right: 0;
+    transform: translate(0, 50%);
 }
 
 form svg {
@@ -108,14 +109,18 @@ form button {
     font-size: 1.2rem;
 }
 
+.svg-container {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    color: black;
+}
+
 .watchlist-button {
     background-color: black;
     color: white;
     border-radius: 50%;
     border: none;
-}
-
-.svg-container {
     height: 1.5rem;
     width: 1.5rem;
 }

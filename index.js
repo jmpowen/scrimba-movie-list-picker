@@ -48,6 +48,8 @@ s=${searchInput.value}`)
 
             const addToWatchlistContainer = document.createElement('div')
             addToWatchlistContainer.classList.add('svg-container')
+            const addToWatchlistText = document.createElement('p')
+            addToWatchlistText.textContent = wl.includes(item.imdbID) ? 'Remove' : 'Watchlist'
             const addToWatchlist = document.createElement('button')
             addToWatchlist.classList.add('watchlist-button')
             addToWatchlist.innerHTML = wl.includes(item.imdbID) ? `
@@ -64,17 +66,19 @@ s=${searchInput.value}`)
                     addToWatchlist.innerHTML = `
                         <svg class="scalable-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-plus"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
                     `
+                    addToWatchlistText.textContent = 'Watchlist'
                 } else {
                     watchlist.push(item.imdbID)
                     addToWatchlist.innerHTML = `
                         <svg class="scalable-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-minus"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 12l14 0" /></svg>
                     `
+                    addToWatchlistText.textContent = 'Remove'
                 }
 
                 localStorage.setItem('watchlist', JSON.stringify(watchlist))
             })
 
-            addToWatchlistContainer.appendChild(addToWatchlist)
+            addToWatchlistContainer.append(addToWatchlist, addToWatchlistText)
             
 
 
